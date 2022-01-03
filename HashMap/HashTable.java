@@ -45,6 +45,7 @@ public class HashTable implements MyMap {
                 return entry.value;
             }
         }
+
         return "value not found";
     }
 
@@ -110,7 +111,7 @@ public class HashTable implements MyMap {
         entries = new Entry[2 * entries.length+1];
         for (Entry entry : tempEntries) {
             if (entry == null || entry == NIL) continue;
-            int h = hash((entry.key));
+            int h = hash(entry.key);
             for (int i = 0; i < entries.length; i++) {
                 int j = linearProbe(h, i); // j contains index
                 if (entries[j] == null) {
